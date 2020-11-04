@@ -20,17 +20,19 @@ public class User {
     private Long id;
     @NonNull
     private String fname;
-    @Length(min = 2,message = "Your name Should be More then Two Charecters")
+    @Length(min = 2,message = "Your name Should be More then Two Characters")
     private String lname;
     @NonNull
     @Column(unique = true)
     private String userName;
     @NonNull
-    @Length(min = 4,message = "Your password Should be More then Four Charecters")
+    @Length(min = 4,message = "Your password Should be More then Four Characters")
     private String password;
     @Email(message = "Email Is Invalid")
     @Column(unique = true)
     private String email;
+
+    private boolean isActive;
 
 
 }

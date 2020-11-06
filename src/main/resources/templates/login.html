@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>LogIn</title>
-    <div th:replace="fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header-css"></div>
 </head>
 <body>
-<div th:replace="fragments/header :: header"/>
-<div class="container"/>
+<div th:replace="fragments/header :: header"></div>
+<div class="container">
+    <div class="row">
+        <br>
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading" style="direction: rtl">ورود</div>
+                <div class="panel-body">
+                    <form  method="post" th:href="@{'/signin'}" style="direction: rtl">
+
+                        <div class="form-group">
+                            <input type="email"  class="form-control" required placeholder="ایمیل">
+                        </div>
+                        <div class="form-group">
+                            <input type="password"  class="form-control" required placeholder="کلمه عبود">
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" value="ورود" >
+                        <a th:href="@{'/login'}"><input type="button" class="btn btn-primary" value="انصراف" ></a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>

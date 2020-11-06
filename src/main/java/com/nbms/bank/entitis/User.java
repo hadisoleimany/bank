@@ -1,11 +1,13 @@
 package com.nbms.bank.entitis;
 
+import com.nbms.bank.enums.RoleType;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Set;
 
 @Entity
 @Table
@@ -19,8 +21,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NonNull
+    @Length(min = 2,message = "Your First name Should be More then Two Characters")
     private String fname;
-    @Length(min = 2,message = "Your name Should be More then Two Characters")
+    @Length(min = 2,message = "Your Last name Should be More then Two Characters")
     private String lname;
     @NonNull
     @Column(unique = true)
@@ -33,6 +36,9 @@ public class User {
     private String email;
 
     private boolean isActive;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Role> roleTypes;
 
 
 }
